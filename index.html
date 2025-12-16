@@ -8,17 +8,28 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="navbar">
-        <h1 class="logo">TeeCraft</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#design">Design</a>
-            <a href="#products">Products</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header class="navbar">
+    <h1 class="logo">TeeStore</h1>
+
+    <!-- Toggle -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Hamburger -->
+    <label for="menu-toggle" class="hamburger">
+        ☰
+    </label>
+
+    <!-- Menu -->
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#design">Design</a>
+        <a href="#products">Products</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -36,6 +47,39 @@
     </section>
 
     <!-- Design Section -->
+     <div class="container">
+    <h1>👕 Custom T-Shirt Designer</h1>
+    <p>Select color & design to preview your T-shirt</p>
+
+    <div class="designer">
+
+        <!-- T-Shirt Preview -->
+        <div class="tshirt" id="tshirt">
+            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
+                 class="design" id="design">
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <h3>Choose Color</h3>
+            <button class="blue" onclick="changeColor('#1e90ff')">Blue</button>
+            <button class="red" onclick="changeColor('#e74c3c')">Red</button>
+            <button class="black" onclick="changeColor('#2c3e50')">Black</button>
+
+            <h3 style="margin-top:20px;">Choose Design</h3>
+            <button class="design-btn" onclick="changeDesign('5.jpg')">
+                Demon Slayer
+            </button>
+            <button class="design-btn" onclick="changeDesign('6.jpg')">
+                Naruto
+            </button>
+            <button class="design-btn" onclick="changeDesign('7.webp')">
+                Dragon Ball
+            </button>
+        </div>
+
+    </div>
+</div>
     <!-- Why Choose Us -->
     <section class="why-us">
         <h2>Why Choose TeeCraft?</h2>
@@ -104,6 +148,11 @@
                     <p>₹749</p>
                     <button>Buy Now</button>
                 </div>
+                <div class="card">
+                    <img src="8.webp">
+                    <p>₹849</p>
+                    <button>Buy Now</button>
+                </div>
         </div>
     </section>
 
@@ -128,14 +177,47 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Message"></textarea>
-            <button type="submit">Send</button>
-        </form>
+    
+
+    <div class="contact-box">
+
+    <div class="contact-item">
+        <img src="m.png" alt="Email">
+        <span>teecraft@gmail.com</span>
+    </div>
+
+    <div class="contact-item">
+        <img src="p.png" alt="Phone">
+        <span>+91 98765 43210</span>
+    </div>
+
+    <div class="contact-item">
+        <img src="x.png" alt="Twitter">
+        <span>@TeeCraft</span>
+    </div>
+
+    <div class="contact-item">
+        <img src="insta.jpg" alt="Instagram">
+        <span>@teecraft_official</span>
+    </div>
+
+    <div class="contact-item">
+        <img src="face.png" alt="Facebook">
+        <span>TeeCraft Store</span>
+    </div>
+
+    <div class="contact-item">
+        <img src="t.png" alt="Threads">
+        <span>@teecraft</span>
+    </div>
+
+</div>
+
+
+    </div>
+</section>
+
+        
     </section>
 
     <!-- Footer -->
@@ -149,22 +231,290 @@
 <!-- style.css -->
 <style>
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
 }
 
-.navbar {
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.designer {
     display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    background: #111;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
 }
 
-.navbar a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
+/* T-shirt preview */
+.tshirt {
+    width: 260px;
+    height: 320px;
+    background: #1e90ff;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+
+/* Neck */
+.tshirt::before {
+    content: "";
+    width: 90px;
+    height: 40px;
+    background: #f4f4f4;
+    position: absolute;
+    top: -5px;
+    left: 85px;
+    border-radius: 0 0 40px 40px;
+}
+
+/* Design on shirt */
+.design {
+    width: 150px;
+    padding: 30px;
+    left: 30px;
+    top : 30px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    display: none;
+}
+
+/* Controls */
+.controls {
+    text-align: left;
+}
+.contact-box {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+}
+
+.contact-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.controls h3 {
+    margin-bottom: 10px;
+}
+.contact {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-box {
+    max-width: 500px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+    font-size: 16px;
+}
+
+.contact-item i {
+    font-size: 22px;
+    color: #ff4d4d;
+}
+
+.controls button {
+    padding: 8px 14px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.blue { background: #1e90ff; }
+.red { background: #e74c3c; }
+.black { background: #2c3e50; }
+
+.design-btn {
+    background: #555;
+    display: block;
+    margin-top: 8px;
+    width: 120px;
+}
+
+
+/* Navbar container */
+.navbar {
+    background: #111;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    color: #ff4d4d;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger icon */
+.hamburger {
+    font-size: 28px;
+    cursor: pointer;
+    display: block;
+}
+
+/* Menu hidden initially */
+.nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #111;
+    width: 180px;
+    display: none;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+/* Menu links */
+.nav-links a {
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+}
+
+.nav-links a:hover {
+    background: #ff4d4d;
+}
+
+/* Show menu on click */
+#menu-toggle:checked ~ .nav-links {
+    display: flex;
+}
+
+/* Desktop view */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        background: none;
+    }
+
+    .nav-links a {
+        border: none;
+        margin-left: 20px;
+    }
+}
+
+
+.logo {
+    color: #ff4d4d;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+}
+
+/* Nav Links */
+.nav-links {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background: #111;
+    display: none;
+    flex-direction: column;
+    width: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.nav-links a {
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+}
+
+.nav-links a:hover {
+    background: #ff4d4d;
+}
+
+/* Show menu when clicked */
+#menu-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        background: none;
+        width: auto;
+    }
+
+    .nav-links a {
+        border: none;
+        margin-left: 20px;
+    }
+}
+
 
 .logo { color: #ff4d4d; }
 
@@ -334,4 +684,16 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
+
 </style>
+<script>
+function changeColor(color) {
+    document.getElementById("tshirt").style.background = color;
+}
+
+function changeDesign(image) {
+    const design = document.getElementById("design");
+    design.src = image;
+    design.style.display = "block";
+}
+</script>
